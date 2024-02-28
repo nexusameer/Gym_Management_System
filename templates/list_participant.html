@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container my-5" >
+    <h2>List Participants</h2>
+    <table class="table table-striped">
+      <thead style="color: white;">
+        <tr>
+          <th>Name</th>
+          <th>ID Card</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Membership Plan</th>
+        </tr>
+      </thead>
+      <tbody style="color: white;">
+        {% for participant_data in participant_data %}
+          <tr>
+            <td>{{ participant_data.participant.pname }}</td>
+            <td>{{ participant_data.participant.id_card }}</td>
+            <td>{{ participant_data.participant.address }}</td>
+            <td>{{ participant_data.participant.phone_number }}</td>
+            <td>{{ participant_data.plan_info }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

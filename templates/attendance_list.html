@@ -1,0 +1,38 @@
+<!-- attendance_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" >
+  <h1 class="mt-5">Attendance Records</h1>
+
+  <table class="table" >
+    <thead style="color:white;">
+      <tr>
+        <th>Date</th>
+        <th>Participant</th>
+        <th>Management Plan</th>
+        <th>Arrival Time</th>
+        <th>Departure Time</th>
+      </tr>
+    </thead>
+    <tbody style="color:white;">
+      {% for record in attendance_records %}
+      <tr>
+        <td>{{ record.date }}</td>
+        <td>{{ record.participant }}</td>
+        <td>
+          {% if record.participant.membershippurchase %}
+          {{ record.participant.membershippurchase.membership_plan.mname }}
+          {% else %}
+          No membership plan
+          {% endif %}
+        </td>
+        <td>{{ record.arrival_time }}</td>
+        <td>{{ record.departure_time }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

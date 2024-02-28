@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Energym</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Font styles -->
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- Slider section -->
+    <section class="slider_section position-relative">
+      <div class="container-fluid px-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="{% url 'index'%}">Energym</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'index' %}">Home</a>
+                  </li>
+                  <li class="nav-item dropdown" style="margin-right:60px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Attendance
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'attendance_view'%}">Add Attendance</a>
+                        <a class="dropdown-item" href="{% url 'attendance_list'%}">Attendance List </a>
+
+
+                    </div>
+                </li>
+                  <li class="nav-item">
+                    {% comment %} <a class="nav-link" href="{% url 'mark_attendance' %}">Mark Attendance</a> {% endcomment %}
+                  </li>
+                  <li class="nav-item dropdown" style="margin-right:60px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Membership
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'service' %}">Management Plan</a>
+                        <a class="dropdown-item" href="{% url 'add_membership_purchase'%}">add_membership_purchase</a>
+                        <a class="dropdown-item" href="{% url 'membership_purchase_list'%}">membership_purchase_list</a>
+
+
+                    </div>
+                  <li class="nav-item dropdown" style="margin-right:60px;">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          Participant
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'add_participant'%}">Add Participant</a>
+                          <a class="dropdown-item" href="{% url 'list_participant'%}">List Participant</a>
+
+
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      
+        
+      </div>
+      <div class="container">
+        {% if messages %}
+          <div class="alert alert-info" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      {% block content %}
+      
+      {% endblock %}
+
+      <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+      <script>
+        function openNav() {
+          document.getElementById("myNav").classList.toggle("menu_width");
+          document
+            .querySelector(".custom_menu-btn")
+            .classList.toggle("menu_btn-style");
+        }
+      </script>
+    </body>
+</html>

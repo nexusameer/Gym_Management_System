@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <h2>Membership Purchases</h2>
+    <table class="table table-striped">
+      <thead style="color:white">
+        <tr>
+          <th>Participant Name</th>
+          <th>Membership Plan</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for membership in memberships %}
+          <tr style="color:white">
+            <td>{{ membership.participant.pname }}</td>
+            <td>
+              {% if membership.membership_plan %}
+                {{ membership.membership_plan.mname }}
+              {% else %}
+                No membership plan
+              {% endif %}
+            </td>
+            <td>{{ membership.start_date }}</td>
+            <td>{{ membership.end_date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
